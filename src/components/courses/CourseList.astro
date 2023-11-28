@@ -1,0 +1,27 @@
+---
+import CourseCard from "./CourseCard.astro";
+import { courses } from "../../config/courses";
+---
+
+<section>
+  <h2>Nos cours en ligne</h2>
+  <ul class="course-list">
+    {courses.map((course) => <CourseCard course={course} />)}
+  </ul>
+</section>
+
+<style>
+  .course-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  @media only screen and (max-width: 640px) {
+    .course-list {
+      justify-content: center;
+    }
+  }
+</style>

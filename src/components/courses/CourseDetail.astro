@@ -1,0 +1,88 @@
+---
+import type { Course } from "../../models/course";
+import { formatPrice } from "../../utils/price.utils";
+import Button from "../common/Button.astro";
+import Link from "../common/Link.astro";
+interface Props {
+  course: Course;
+}
+
+const { course } = Astro.props;
+---
+
+<section class="course-detail">
+  <Link href="/">&lt; Retour</Link>
+  <h1>{course.title}</h1>
+  <div class="course-detail__info">
+    <div class="course-detail__info_image">
+      <img {...course.image} />
+    </div>
+    <div class="course-detail__info_description">
+      <h2>Description</h2>
+      <p>
+        {course.description}
+      </p>
+      <h2>Prix</h2>
+      <p class="course-detail__info_price">{formatPrice(course.price)}</p>
+    </div>
+  </div>
+  <div class="course-detail__action">
+    <Button>Ajouter au panier</Button>
+  </div>
+</section>
+
+<style>
+  .course-detail {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .course-detail__info {
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    flex-wrap: wrap;
+  }
+
+  .course-detail__info_description:nth-child(2) {
+    font-size: 1.3rem;
+  }
+
+  .course-detail__info_description {
+    flex: 2;
+    padding: 0 2rem;
+  }
+
+  .course-detail__info_price {
+    font-size: 1.5rem;
+    color: var(--tertiary);
+    font-weight: bold;
+  }
+
+  .course-detail__info_image {
+    flex: 1;
+  }
+
+  img {
+    width: 100%;
+    border-radius: 2rem;
+    object-fit: cover;
+    height: 20rem;
+    margin: auto;
+  }
+
+  .course-detail__action {
+    padding-top: 1rem;
+    max-width: 10rem;
+    margin: auto;
+    height: 100px;
+  }
+
+  @media only screen and (max-width: 640px) {
+    .course-detail__info {
+      flex-direction: column;
+    }
+  }
+</style>
