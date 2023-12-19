@@ -1,14 +1,14 @@
 ---
 import { type Course } from "../../models/course";
 import { formatPrice } from "../../utils/price.utils";
-import Button from "../common/Button.astro";
+import AddToCartButton from "../common/AddToCartButton";
+
 interface Props {
   course: Course;
 }
 
-const {
-  course: { slug, title, image, price },
-} = Astro.props;
+const { course } = Astro.props;
+const { slug, title, image, price } = course;
 ---
 
 <li class="course-card">
@@ -19,7 +19,9 @@ const {
       <p class="course-card__price">{formatPrice(price)}</p>
     </div>
     <div class="course-card__actions">
-      <Button>Ajouter au panier</Button>
+      <AddToCartButton course={course} client:load>
+        Ajouter au panier
+      </AddToCartButton>
     </div>
   </a>
 </li>

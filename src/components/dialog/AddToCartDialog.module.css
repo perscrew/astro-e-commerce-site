@@ -1,0 +1,39 @@
+.dialog {
+  border-radius: 0.6rem;
+  border-color: var(--background);
+  z-index: 20;
+  padding: 0.6rem 1rem;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  position: absolute;
+}
+
+.dialog h3 {
+  font-size: 1.3rem;
+}
+
+.dialog p {
+  margin-top: 2rem;
+}
+
+.overlay {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.buttons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: end;
+}
