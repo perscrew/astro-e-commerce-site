@@ -19,7 +19,7 @@ const { slug, title, image, price } = course;
       <p class="course-card__price">{formatPrice(price)}</p>
     </div>
     <div class="course-card__actions">
-      <AddToCartButton course={course} client:load>
+      <AddToCartButton course={course} client:only>
         Ajouter au panier
       </AddToCartButton>
     </div>

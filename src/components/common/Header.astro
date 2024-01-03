@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import logo from "../../assets/logo.png";
+import CartCounter from "./CartCounter";
 ---
 
 <header>
@@ -11,20 +12,7 @@ import logo from "../../assets/logo.png";
        AcademyAccess
     </a>
 
-    <button class="cart-icon">
-      <svg
-        fill="none"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-        ></path>
-      </svg>
-    </button>
+    <CartCounter client:load />
   </section>
 </header>
 
@@ -63,18 +51,5 @@ import logo from "../../assets/logo.png";
 
   .site-title img {
     margin-right: 0.5rem;
-  }
-
-  .cart-icon {
-    border: 0;
-    background-color: var(--front-background);
-    cursor: pointer;
-    color: var(--primary);
-    width: 2.8rem;
-    height: 2.8rem;
-  }
-
-  .cart-icon:hover {
-    opacity: 0.7;
   }
 </style>

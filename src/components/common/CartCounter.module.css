@@ -1,0 +1,24 @@
+.cart-icon {
+  border: 0;
+  background-color: var(--front-background);
+  cursor: pointer;
+  color: var(--primary);
+  width: 2.8rem;
+  height: 2.8rem;
+  position: relative;
+}
+
+.cart-icon:hover {
+  opacity: 0.7;
+}
+
+.badge {
+  position: absolute;
+  background-color: var(--primary);
+  border-radius: 2rem;
+  color: white;
+  font-size: 0.8rem;
+  top: -4px;
+  right: -4px;
+  padding: 3px 6px;
+}

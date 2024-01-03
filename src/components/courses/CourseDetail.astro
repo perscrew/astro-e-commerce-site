@@ -1,7 +1,7 @@
 ---
 import type { Course } from "../../models/course";
 import { formatPrice } from "../../utils/price.utils";
-import Button from "../common/Button.tsx";
+import AddToCartButton from "../common/AddToCartButton";
 import Link from "../common/Link.astro";
 interface Props {
   course: Course;
@@ -27,7 +27,7 @@ const { course } = Astro.props;
     </div>
   </div>
   <div class="course-detail__action">
-    <Button>Ajouter au panier</Button>
+    <AddToCartButton course={course} client:only />
   </div>
 </section>
 
