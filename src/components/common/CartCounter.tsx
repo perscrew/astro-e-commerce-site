@@ -2,6 +2,7 @@ import { useStore } from "@nanostores/react";
 import { useEffect } from "react";
 import { cartStore, getCartFromStorage } from "../../store/cartStore";
 import classes from "./CartCounter.module.css";
+import { toggleDrawer } from "../../store/drawerStore";
 
 const CartCounter = () => {
   const $cartStore = useStore(cartStore);
@@ -13,7 +14,7 @@ const CartCounter = () => {
   }, []);
 
   return (
-    <button className={classes["cart-icon"]}>
+    <button className={classes["cart-icon"]} onClick={toggleDrawer}>
       {articleCount > 0 && (
         <span className={classes.badge}>{articleCount}</span>
       )}

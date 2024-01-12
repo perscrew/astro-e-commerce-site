@@ -6,6 +6,7 @@ import { cartStore, isCourseIsInCart, saveCart } from "../../store/cartStore";
 import AddToCartDialog from "../dialog/AddToCartDialog";
 import Button from "./Button";
 import classes from "./AddToCartButton.module.css";
+import { drawerStore } from "../../store/drawerStore";
 interface AddToCartButtonProps {
   course: Course;
 }

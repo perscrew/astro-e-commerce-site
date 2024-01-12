@@ -1,0 +1,49 @@
+.drawer {
+  position: fixed;
+  right: 0;
+  z-index: 5;
+  width: 20rem;
+  height: 100vh;
+  background-color: white;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  box-shadow: 12px 0 15px -4px rgba(31, 73, 125, 0.2),
+    -12px 0 8px -4px rgba(31, 73, 125, 0.2);
+  padding: 1rem;
+  transform: translateX(20rem);
+  transition: transform 300ms ease-in-out;
+}
+
+.active {
+  transform: translateX(0);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.close {
+  width: 2.2rem;
+  height: 2.2rem;
+  outline: none;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.title {
+  color: var(--text);
+  font-size: 1.2rem;
+}
+
+.total {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.price {
+  font-size: 1.5rem;
+  margin-left: 1rem;
+}
