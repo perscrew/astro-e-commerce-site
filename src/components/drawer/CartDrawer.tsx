@@ -1,7 +1,8 @@
 import { createPortal } from "react-dom";
 
 import { useStore } from "@nanostores/react";
-import { cartStore } from "../../store/cartStore";
+import type { Course } from "../../models/course";
+import { cartStore, saveCart } from "../../store/cartStore";
 import { drawerStore, toggleDrawer } from "../../store/drawerStore";
 import CartItem from "../cart/CartItem";
 import classes from "./CartDrawer.module.css";
@@ -11,6 +12,16 @@ const CartDrawer = () => {
   const $drawerStore = useStore(drawerStore);
 
   const total = $cartStore.reduce((total, item) => total + item.price, 0);
+  const isCartEmpty = $cartStore.length === 0;
+
+  function courseRemovedHandler(course: Course) {
+    const filteredCourses = $cartStore.filter(
+      (courseFromStore) => courseFromStore.slug !== course.slug
+    );
+
+    cartStore.set(filteredCourses);
+    saveCart();
+  }
 
   return createPortal(
     <aside
@@ -38,11 +49,21 @@ const CartDrawer = () => {
       </div>
       <section>
         {$cartStore.map((course) => (
-          <CartItem key={course.title} course={course} />
+          <CartItem
+            key={course.title}
+            course={course}
+            onCourseRemoved={courseRemovedHandler}
+          />
         ))}
       </section>
       <p className={classes.total}>
-        Montant TTC <span className={classes.price}>{total}€</span>
+        {isCartEmpty ? (
+          "Votre panier est actuellement vide"
+        ) : (
+          <>
+            Montant TTC <span className={classes.price}>{total}€</span>
+          </>
+        )}
       </p>
     </aside>,
     document.body
